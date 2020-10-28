@@ -4,7 +4,7 @@ const bodyParsor = require('body-parser');
 const mongo = require('mongodb');
 const MongoClient = mongo.MongoClient;
 const cors = require('cors');
-const port = process.env.PORT | 3159;
+const port = process.env.PORT || 3159;
 let db;
 
 app.use(cors());
@@ -130,7 +130,7 @@ app.put('/updateorder',(req,res)=>{
 MongoClient.connect(mongoUrl, (err, connection) => {
     if (err) throw err;
     db = connection.db("restaurentApp");
-    app.listen(port,'0.0.0.0',(err) => {
+    app.listen(port,(err) => {
         if (err) throw err;
         console.log(`server is runing on port ${port}`)
     })
