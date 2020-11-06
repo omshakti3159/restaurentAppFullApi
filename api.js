@@ -116,7 +116,7 @@ app.delete('/cancleorder', (req, res) => {
 //-------------update orders status----------
 app.put('/updateorderstatus', (req, res) => {
     db.collection('orders').update(
-        { _id: req.body._id },
+        { bookingId: req.body.bookingId },
         {
             $set: {
                 status: req.body.status,
