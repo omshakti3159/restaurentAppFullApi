@@ -113,20 +113,20 @@ app.delete('/cancleorder', (req, res) => {
     })
 })
 
-//-------------update orders----------
-app.put('/updateorder', (req, res) => {
+//-------------update orders status----------
+app.put('/updateorderstatus', (req, res) => {
     db.collection('orders').update(
         { _id: req.body._id },
         {
             $set: {
-                name: req.body.name,
-                address: req.body.address
+                status: req.body.status,
             }
         }, (err, result) => {
             if (err) throw err
             res.send("order updated")
         })
 })
+
 
 
 
