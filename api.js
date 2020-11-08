@@ -85,7 +85,7 @@ app.get('/restaurentlist/:mealtype', (req, res) => {
     else {
         query = { "type.mealtype": req.params.mealtype }
     }
-    db.collection('restaurants').find(query).toArray((err, result) => {
+    db.collection('restaurants').find(query).sort(sort).toArray((err, result) => {
         if (err) throw err;
         res.send(result);
     })
