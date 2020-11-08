@@ -77,6 +77,10 @@ app.get('/restaurentlist/:mealtype', (req, res) => {
     else if (req.query.hcost && req.query.lcost) {
         query = { "type.mealtype": req.params.mealtype, cost: { $lt: Number(req.query.hcost), $gt: Number(req.query.lcost) } }
     }
+     else if (req.query.sortorder) {
+        query = { "type.mealtype": req.params.mealtype }
+        sort = { cost: Number(req.query.sortorder) }
+    }
     else {
         query = { "type.mealtype": req.params.mealtype }
     }
