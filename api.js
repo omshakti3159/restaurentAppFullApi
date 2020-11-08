@@ -68,6 +68,7 @@ app.get('/restaurentdetails/:id', (req, res) => {
 //-----------restaurent listing---------
 app.get('/restaurentlist/:mealtype', (req, res) => {
     let query = {};
+    let sort = { _id: 1 }
     if (req.query.cuisine) {
         query = { "type.mealtype": req.params.mealtype, "Cuisine.cuisine": req.query.cuisine }
     }
